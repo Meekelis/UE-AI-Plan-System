@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1",
+	"FriendlyName": "AI Plans",
+	"Description": "The AI Plans plugin offers a new Blueprint asset type to encapsulate AI plans for planning AI agents and provides a way to run these plans from any Blueprint through a custom K2 node.",
+	"Category": "Artificial Intelligence",
+	"CreatedBy": "Kazimieras Mikelis",
+	"CreatedByURL": "https://mikelis.net/",
+	"DocsURL": "https://github.com/Meekelis/UE-AI-Plan-System",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/Meekelis/UE-AI-Plan-System",
+	"CanContainContent": false,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": true,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "AIPlans",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

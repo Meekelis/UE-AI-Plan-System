@@ -92,7 +92,6 @@ void UK2Node_RunAIAction::ExpandNode(FKismetCompilerContext& CompilerContext, UE
 	CallCreateNode->FunctionReference.SetExternalMember(RunPlanFunctionName, StaticClass());
 	CallCreateNode->AllocateDefaultPins();
 
-	//allocate nodes for created widget.
 	UEdGraphPin* CallCreate_ExecPin = CallCreateNode->GetExecPin();
 	UEdGraphPin* CallCreate_PlanClass = CallCreateNode->FindPinChecked(FunctionParam_PlanClass);
 	UEdGraphPin* CallCreate_Instigator = CallCreateNode->FindPinChecked(FunctionParam_Instigator);

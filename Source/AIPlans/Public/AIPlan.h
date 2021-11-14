@@ -17,13 +17,20 @@ class AIPLANS_API UAIPlan : public UObject, public FTickableGameObject
 
 public:
 
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlanFinished, AAIController*, Controller, FName, FinishMessage);
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnPlanFinished, AAIController*, Controller, FName, FinishMessage, UAIPlan*, Plan);
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnNotify, AAIController*, Controller, FName, NotifyMessage, UAIPlan*, Plan);
 
 	/**
 	 * Delegate broadcast on when the plan has finished.
 	 */
 	UPROPERTY(BlueprintAssignable)
 	FOnPlanFinished OnPlanFinished;
+
+	/**
+	 * Delegate broadcast on when the the plan calls the Notify() function.
+	 */
+	UPROPERTY(BlueprintAssignable)
+	FOnNotify OnNotify;
 
 	/**
 	 * Execute this AI plan.
@@ -36,6 +43,13 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable)
 	void Abort();
+
+	/**
+	 * Call a notify for this AI plan.
+	 * Use notifies to communicate significant events in the execution of this plan.
+	 */
+	UFUNCTION(BlueprintCallable)
+	void Notify(FName NotifyName);
 
 	virtual UWorld* GetWorld() const override;
 	virtual void Tick(float DeltaTime) override;
@@ -68,12 +82,12 @@ protected:
 	 * Called on tick.
 	 */
 	UFUNCTION(BlueprintNativeEvent)
-	void OnUpdate(AAIController* Controller, APawn* ControlledPawn);
+	void OnUpdate(AAIController* Controller, APawn* ControlledPawn, float DeltaTime);
 
 	/**
 	 * Called on tick.
 	 */
-	virtual void OnUpdate_Implementation(AAIController* Controller, APawn* ControlledPawn) {}
+	virtual void OnUpdate_Implementation(AAIController* Controller, APawn* ControlledPawn, float DeltaTime) {}
 
 	/**
 	 * Called when the plan should finish executing

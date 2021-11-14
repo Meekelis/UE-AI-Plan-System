@@ -28,7 +28,12 @@ void UAIPlan::Abort()
 	bExecuting = false;
 	OnStopExecute(Owner, GetControlledPawn(), true);
 	UAIPlansManager::DeregisterPlan(Owner);
-	OnPlanFinished.Broadcast(Owner, TEXT("Special.Abort"));
+	OnPlanFinished.Broadcast(Owner, TEXT("Special.Abort"), this);
+}
+
+void UAIPlan::Notify(FName NotifyName)
+{
+	OnNotify.Broadcast(Owner, NotifyName, this);
 }
 
 void UAIPlan::Tick(float DeltaTime)
@@ -42,7 +47,7 @@ void UAIPlan::Tick(float DeltaTime)
 
 	if(bExecuting) 
 	{
-		OnUpdate(Owner, GetControlledPawn());
+		OnUpdate(Owner, GetControlledPawn(), DeltaTime);
 	}
 }
 
@@ -72,7 +77,7 @@ void UAIPlan::Finish(const FName FinishMessage)
 	bExecuting = false;
 	OnStopExecute(Owner, GetControlledPawn(), false);
 	UAIPlansManager::DeregisterPlan(Owner);
-	OnPlanFinished.Broadcast(Owner, FinishMessage);
+	OnPlanFinished.Broadcast(Owner, FinishMessage, this);
 }
 
 APawn* UAIPlan::GetControlledPawn()

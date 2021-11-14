@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class AIPlans : ModuleRules
+public class AIPlansEd : ModuleRules
 {
-	public AIPlans(ReadOnlyTargetRules Target) : base(Target)
+	public AIPlansEd(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
@@ -33,7 +33,23 @@ public class AIPlans : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"Settings",
 				"RenderCore",
+
+				"AIPlans",
+
+				"AssetTools",
+				"UnrealEd",
+				"KismetWidgets",
+				"KismetCompiler",
+				"BlueprintGraph",
+				"GraphEditor",
+				"Kismet",
+				"PropertyEditor",
+				"EditorStyle",
+				"Sequencer",
+				"DetailCustomizations",
+				"Settings"
 				// ... add other public dependencies that you statically link with here ...
 			}
 		);
@@ -48,7 +64,21 @@ public class AIPlans : ModuleRules
 			    "Slate",
 			    "Engine",
 			    "SlateCore",
+			    "Settings",
 			    "RenderCore",
+
+				"AIPlans",
+
+				"AssetTools",
+				"UnrealEd",
+				"KismetWidgets",
+				"KismetCompiler",
+				"BlueprintGraph",
+				"GraphEditor",
+				"EditorStyle",
+				"Sequencer",
+				"DetailCustomizations",
+				"Settings"
 				// ... add private dependencies that you statically link with here ...	
 			}
 		);		

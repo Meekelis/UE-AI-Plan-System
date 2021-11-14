@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class AIPLANS_API UK2Node_RunAIAction : public UK2Node_ConstructObjectFromClass
+class AIPLANSED_API UK2Node_RunAIAction : public UK2Node_ConstructObjectFromClass
 {
 	GENERATED_BODY()
 

@@ -2,6 +2,7 @@
 	"BuildId": "17155196",
 	"Modules": 
 	{
-		"AIPlans": "UE4Editor-AIPlans-Win64-DebugGame.dll"
+		"AIPlans": "UE4Editor-AIPlans-Win64-DebugGame.dll",
+		"AIPlansEd": "UE4Editor-AIPlansEd-Win64-DebugGame.dll"
 	}
 }

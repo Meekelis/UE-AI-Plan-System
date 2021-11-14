@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "0.2",
+	"VersionName": "0.2.1",
 	"FriendlyName": "AI Plans",
 	"Description": "The AI Plans plugin offers a new Blueprint asset type to encapsulate AI plans for planning AI agents and provides a way to run these plans from any Blueprint through a custom K2 node.",
 	"Category": "Artificial Intelligence",
@@ -18,6 +18,11 @@
 		{
 			"Name": "AIPlans",
 			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "AIPlansEd",
+			"Type": "UncookedOnly",
 			"LoadingPhase": "Default"
 		}
 	]
